@@ -1,8 +1,15 @@
 <?php
 /**
  * Secure Contact Form Handler
- * Receives form data via POST and sends email
+ * Receives form data via POST and sends email using PHPMailer
  */
+
+// Load PHPMailer
+require_once __DIR__ . '/vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 // Set headers for JSON response
 header('Content-Type: application/json');
@@ -34,11 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ============================================
-// CONFIGURATION - Update these values
+// CONFIGURATION
 // ============================================
 $recipient_email = 'sved@sved.net';
-$from_email = 'noreply@sved.net';  // Use your domain's email
+$from_email = 'noreply@sved.net';
 $email_subject_prefix = '[Website Contact] ';
+
+// SMTP Configuration - UPDATE THESE WITH YOUR CREDENTIALS
+$smtp_config = [
+    'host'     => 'smtp.yandex.com',      // e.g., smtp.gmail.com, smtp.sendgrid.net
+    'port'     => 587,                      // 587 for TLS, 465 for SSL
+    'username' => '',    // Your SMTP username
+    'password' => '',    // Your SMTP password or app password
+    'encryption' => 'tls',                 // 'tls' or 'ssl'
+];
 
 // Rate limiting settings
 $rate_limit_file = sys_get_temp_dir() . '/contact_form_rate_limit.json';
@@ -199,11 +215,33 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Priority: 3\r\n";
 
 // ============================================
-// SEND EMAIL
+// SEND EMAIL USING PHPMAILER
 // ============================================
-$mail_sent = @mail($recipient_email, $full_subject, $email_body, $headers);
+$mail = new PHPMailer(true);
 
-if ($mail_sent) {
+try {
+    // SMTP configuration
+    $mail->isSMTP();
+    $mail->Host       = $smtp_config['host'];
+    $mail->SMTPAuth   = true;
+    $mail->Username   = $smtp_config['username'];
+    $mail->Password   = $smtp_config['password'];
+    $mail->SMTPSecure = $smtp_config['encryption'] === 'ssl' ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = $smtp_config['port'];
+
+    // Recipients
+    $mail->setFrom($from_email, 'Website Contact');
+    $mail->addAddress($recipient_email);
+    $mail->addReplyTo($sender_email, $name);
+
+    // Content
+    $mail->isHTML(false);
+    $mail->CharSet = 'UTF-8';
+    $mail->Subject = $full_subject;
+    $mail->Body    = $email_body;
+
+    $mail->send();
+    
     // Record this submission for rate limiting
     $rate_data[$client_ip][] = $current_time;
     saveRateLimitData($rate_limit_file, $rate_data);
@@ -213,9 +251,9 @@ if ($mail_sent) {
         'success' => true,
         'message' => 'Your message has been sent successfully!'
     ]);
-} else {
+} catch (Exception $e) {
     // Log error for debugging (in production, log to file instead)
-    error_log("Contact form email failed for IP: $client_ip");
+    error_log("Contact form email failed for IP: $client_ip - Error: " . $mail->ErrorInfo);
     
     http_response_code(500);
     echo json_encode([
