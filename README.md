@@ -1,4 +1,4 @@
-# Svetoslav Rankov Portfolio
+# Svetoslav Rankov (sved) Webspace
 
 My personal website showcasing experience as a General Manager and Tech Lead. Built with modern web technologies for optimal performance and developer experience.
 
