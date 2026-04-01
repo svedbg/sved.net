@@ -1,49 +1,42 @@
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Leadership & Management",
+      title: "Engineering Leadership",
       skills: [
-        "Team Building",
-        "Strategic Planning",
+        "Org Design & Scaling",
+        "Engineering Strategy",
+        "Executive Communication",
+        "Budget & Resource Planning",
+        "Hiring & Talent Development",
         "Performance Management",
-        "Stakeholder Communication",
-        "Budget Management",
-        "Hiring & Retention",
       ],
     },
     {
-      title: "Technical Expertise",
+      title: "Technical Foundation",
       skills: [
-        "Node.js",
-        "Full Stack Development",
-        "AWS",
         "Software Architecture",
         "System Design",
-        "Cloud Infrastructure",
+        "Cloud Infrastructure (AWS)",
         "Data Engineering",
-        "DevOps Practices",
+        "DevOps & CI/CD",
         "API Design",
       ],
     },
     {
-      title: "Methodologies",
+      title: "Strategy & Delivery",
       skills: [
-        "Agile / Scrum",
-        "Kanban",
-        "OKRs",
-        "Continuous Delivery",
-        "Technical Debt Management",
-        "Code Review Culture",
+        "Roadmap Planning",
+        "OKRs & Goal Setting",
+        "Technical Debt Strategy",
+        "Platform & Product Alignment",
       ],
     },
     {
-      title: "Soft Skills",
+      title: "People & Culture",
       skills: [
+        "Leadership Development",
         "Cross-cultural Leadership",
-        "Conflict Resolution",
-        "Mentorship",
-        "Public Speaking",
-        "Technical Writing",
+        "Mentorship & Coaching",
         "Change Management",
       ],
     },
@@ -62,8 +55,8 @@ const SkillsSection = () => {
               Core <span className="gradient-text">Competencies</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              A comprehensive skill set spanning technical expertise, 
-              leadership, and organizational development.
+              What I bring to the table — from technical architecture
+              to building the teams and culture around it.
             </p>
           </div>
 

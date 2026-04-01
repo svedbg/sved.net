@@ -82,8 +82,8 @@ const ContactSection = () => {
               Let's <span className="gradient-text">Connect</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              Whether you want to discuss technology, leadership, or potential 
-              collaborations, I'd love to hear from you.
+              Building a distributed engineering team? Navigating a technical
+              leadership transition? I'm always happy to talk shop.
             </p>
           </div>
 

@@ -30,24 +30,23 @@ const HeroSection = () => {
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-            <a href="https://calendly.com/svedbg/30min" target="_blank" title="Book a meeting with me"><span className="text-sm text-content-muted font-medium">Get in touch for consulting & GM opportunities</span></a>
+            <a href="https://calendly.com/svedbg/30min" target="_blank" title="Book a meeting with me"><span className="text-sm text-content-muted font-medium">Available for advisory & speaking engagements</span></a>
           </div>
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-            Hi, I'm{" "}
             <span className="gradient-text">Svetoslav Rankov</span>
           </h1>
 
           {/* Title */}
           <p className="text-xl md:text-2xl text-content-muted mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            Engineering Manager & General Manager
+            Senior Director, Engineering
           </p>
 
-          {/* Company */}
-          <p className="text-lg text-content/80 mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-            Leading the Sofia Engineering Office at{" "}
+          <p className="text-lg text-content/80 mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+            I build the engineering teams behind{" "}
             <a href="https://www.edited.com/" target="_blank" title="EDITED - Empowering Intelligent Retail"><span className="text-brand font-semibold">EDITED</span></a>
+            {" "}— the retail intelligence platform trusted by the world's leading brands.
           </p>
 
           {/* Location */}
@@ -78,7 +77,7 @@ const HeroSection = () => {
               href="#about"
               className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-content-inverse font-semibold rounded-xl hover:opacity-90 transition-all duration-300 glow-effect"
             >
-              Learn More About Me
+              See How I Lead
             </a>
           </div>
         </div>

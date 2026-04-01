@@ -4,13 +4,13 @@ const AboutSection = () => {
   const highlights = [
     {
       icon: Users,
-      title: "Team Leadership",
-      description: "Building and scaling high-performing engineering teams",
+      title: "Organizational Leadership",
+      description: "Grew the Sofia office to 30+ engineers across 4 teams",
     },
     {
       icon: Target,
       title: "Strategic Vision",
-      description: "Aligning technology initiatives with business objectives",
+      description: "Set multi-year technical roadmaps aligned with business growth targets",
     },
     {
       icon: Lightbulb,
@@ -34,12 +34,12 @@ const AboutSection = () => {
               About Me
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Passionate About Building{" "}
-              <span className="gradient-text">Great Teams</span>
+              From First Hire to{" "}
+              <span className="gradient-text">Engineering Director</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              With extensive experience in engineering leadership, I focus on creating 
-              environments where talented people can do their best work.
+              I helped build EDITED's Sofia office from the ground up. Today I lead the
+              engineering teams that power retail intelligence for global brands.
             </p>
           </div>
 
@@ -48,20 +48,22 @@ const AboutSection = () => {
             {/* Text content */}
             <div className="space-y-6">
               <p className="text-content/90 text-lg leading-relaxed">
-                As the Engineering Manager and General Manager of EDITED's Sofia office, 
-                I lead a talented team focused on building cutting-edge retail intelligence 
-                solutions that empower some of the world's leading brands.
+                I joined EDITED early in the life of the Sofia office and helped grow it
+                into a core engineering hub. My teams build the systems that help
+                the world's biggest retailers decide what to stock, how to price it,
+                and when to move.
               </p>
               <p className="text-content-muted leading-relaxed">
-                EDITED is a retail intelligence platform that helps brands and retailers 
-                make data-driven decisions about pricing, assortment, and market positioning. 
-                Our Sofia office is a key engineering hub, contributing to the platform's 
-                innovation and growth.
+                As Senior Director, I work across our London, New York, and Sofia offices
+                to set technical direction and make sure we're building the right things
+                the right way. That means owning the engineering roadmap, but also making
+                the hard calls on where to invest, what to retire, and when to change course.
               </p>
               <p className="text-content-muted leading-relaxed">
-                I'm passionate about fostering a collaborative culture, implementing 
-                best engineering practices, and ensuring our team delivers exceptional 
-                value while growing professionally.
+                The part I care most about: people. I've spent years turning strong
+                engineers into strong leaders, and I believe the best engineering
+                cultures are built by teams that challenge each other and have the
+                trust to take real risks.
               </p>
             </div>
 

@@ -3,33 +3,31 @@ import { Building2, Calendar, MapPin } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
+      role: "Senior Director, Engineering",
+      company: "EDITED",
+      companyUrl: "https://www.edited.com/",
+      location: "Sofia, Bulgaria",
+      period: "2026 — Present",
+      description:
+        "Own the engineering strategy and org design for EDITED's Sofia office. Set technical direction across a multi-office engineering organization serving the world's top retailers.",
+      highlights: [
+        "Set the multi-year technical roadmap across 2 product teams",
+        "Grew the engineering org to 30+ people while maintaining delivery velocity",
+        "Unified engineering practices across Sofia, London, and New York",
+        "Championed platform consolidation that reduced operational complexity",
+      ],
+    },
+    {
       role: "Engineering Manager & General Manager",
       company: "EDITED",
       companyUrl: "https://www.edited.com/",
       location: "Sofia, Bulgaria",
-      period: "Present",
+      period: "Earlier — 2026",
       description:
-        "Leading the Sofia engineering office, managing cross-functional teams, and driving strategic initiatives for the retail intelligence platform.",
+        "Built the Sofia engineering office from its earliest hires into a key hub for the platform. Owned hiring, delivery, and day-to-day engineering operations.",
       highlights: [
-        "Managing and scaling the Sofia engineering hub",
-        "Building high-performing distributed teams",
-        "Driving technical excellence and innovation",
-        "Collaborating with London and New York offices",
-      ],
-    },
-    {
-      role: "Senior Engineering Roles",
-      company: "Previous Experience",
-      companyUrl: null as string | null,
-      location: "Bulgaria",
-      period: "Earlier",
-      description:
-        "Progressive engineering leadership roles focused on building scalable systems and growing technical teams.",
-      highlights: [
-        "Software architecture and system design",
-        "Team mentorship and development",
-        "Agile methodologies implementation",
-        "Cross-functional collaboration",
+        "Shipped core platform features used by 100+ global retail brands",
+        "Established engineering culture, practices, and hiring bar",
       ],
     },
   ];
@@ -47,8 +45,7 @@ const ExperienceSection = () => {
               Career <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              A track record of building teams and delivering impactful solutions
-              in the technology industry.
+              10+ years of building software, teams, and the organizations around them.
             </p>
           </div>
 
