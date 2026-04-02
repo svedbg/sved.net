@@ -45,7 +45,8 @@ const ExperienceSection = () => {
               Career <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              10+ years of building software, teams, and the organizations around them.
+              20+ years in software development, with a decade leading teams and building organizations.
+              From early coding days to senior leadership, I've navigated the full spectrum of the software industry, driving impact at every stage of my career.
             </p>
           </div>
 
