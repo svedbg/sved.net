@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./Avatar";
 import { socialLinks, location } from "../config/social";
 
@@ -30,7 +30,7 @@ const HeroSection = () => {
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-            <a href="https://calendly.com/svedbg/30min" target="_blank" title="Book a meeting with me"><span className="text-sm text-content-muted font-medium">Available for advisory & speaking engagements</span></a>
+            <a href="https://calendly.com/svedbg/30min" target="_blank" rel="noopener noreferrer" title="Book time with me"><span className="text-sm text-content-muted font-medium">Open to advisory work & speaking</span></a>
           </div>
 
           {/* Main heading */}
@@ -45,7 +45,7 @@ const HeroSection = () => {
 
           <p className="text-lg text-content/80 mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
             I build the engineering teams behind{" "}
-            <a href="https://www.edited.com/" target="_blank" title="EDITED - Empowering Intelligent Retail"><span className="text-brand font-semibold">EDITED</span></a>
+            <a href="https://www.edited.com/" target="_blank" rel="noopener noreferrer" title="EDITED - Empowering Intelligent Retail"><span className="text-brand font-semibold">EDITED</span></a>
             {" "}— the retail intelligence platform trusted by the world's leading brands.
           </p>
 
@@ -71,13 +71,20 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
+          {/* CTAs */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
             <a
-              href="#about"
+              href="#contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-content-inverse font-semibold rounded-xl hover:opacity-90 transition-all duration-300 glow-effect"
             >
-              See How I Lead
+              <MessageCircle className="w-5 h-5" />
+              Let's Talk
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center gap-2 px-8 py-4 glass-card text-content font-semibold rounded-xl hover:border-brand/30 transition-all duration-300"
+            >
+              More About Me
             </a>
           </div>
         </div>
