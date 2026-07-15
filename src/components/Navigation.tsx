@@ -17,22 +17,27 @@ const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    const sections = navLinks
-      .map((link) => document.getElementById(link.href.slice(1)))
+    const sectionIds = navLinks.map((link) => link.href.slice(1));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
+
+    const intersecting = new Set<string>();
 
     // Track which section crosses the middle band of the viewport
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            intersecting.add(entry.target.id);
           } else {
-            setActiveSection((current) =>
-              current === entry.target.id ? "" : current
-            );
+            intersecting.delete(entry.target.id);
           }
         });
+
+        const current =
+          [...sectionIds].reverse().find((id) => intersecting.has(id)) ?? "";
+        setActiveSection(current);
       },
       { rootMargin: "-45% 0px -50% 0px" }
     );
