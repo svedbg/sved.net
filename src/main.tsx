@@ -11,5 +11,6 @@ const root = document.getElementById("root")!;
 if (root.hasChildNodes() && window.location.pathname === "/") {
   hydrateRoot(root, <App />);
 } else {
+  root.textContent = "";
   createRoot(root).render(<App />);
 }
