@@ -12,13 +12,15 @@ const html = render();
 
 const indexPath = resolve(root, "dist/index.html");
 const template = readFileSync(indexPath, "utf-8");
-const markerRegex = /<div id="root"[^>]*>\s*<\/div>/;
+const markerRegex = /(<div id="root"[^>]*>)\s*(<\/div>)/;
 
 if (!markerRegex.test(template)) {
   throw new Error("Could not find <div id=\"root\"></div> in dist/index.html");
 }
 
-writeFileSync(indexPath, template.replace(markerRegex, `<div id="root">${html}</div>`));
+// Replacer function keeps any attributes on the root element and avoids
+// String.replace's special "$" patterns appearing in the rendered HTML.
+writeFileSync(indexPath, template.replace(markerRegex, (_match, openTag, closeTag) => `${openTag}${html}${closeTag}`));
 rmSync(resolve(root, "dist-ssr"), { recursive: true, force: true });
 
 console.log("Prerendered dist/index.html");
