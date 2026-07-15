@@ -4,28 +4,28 @@ const AboutSection = () => {
   const highlights = [
     {
       icon: Users,
-      title: "Organizational Leadership",
-      description: "Grew the Sofia office to 30+ engineers across 4 teams",
+      title: "Growing Teams",
+      description: "Grew the Sofia office to 30+ engineers across 4 product teams",
     },
     {
       icon: Target,
-      title: "Strategic Vision",
-      description: "Set multi-year technical roadmaps aligned with business growth targets",
+      title: "Setting Direction",
+      description: "Multi-year roadmaps that follow where the business is going",
     },
     {
       icon: Lightbulb,
-      title: "Innovation",
-      description: "Driving technical excellence and continuous improvement",
+      title: "Hard Calls",
+      description: "Deciding where to invest, what to retire, and when to change course",
     },
     {
       icon: TrendingUp,
-      title: "Growth Mindset",
-      description: "Fostering a culture of learning and development",
+      title: "Growing Leaders",
+      description: "Years spent turning strong engineers into strong leaders",
     },
   ];
 
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-16 md:py-24 scroll-mt-24 relative">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
@@ -72,7 +72,7 @@ const AboutSection = () => {
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="glass-card p-6 rounded-2xl hover:border-brand/30 transition-all duration-300 group"
+                  className="glass-card p-4 md:p-6 rounded-2xl hover:border-brand/30 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
                     <item.icon className="w-6 h-6 text-brand" />

@@ -9,12 +9,12 @@ const ExperienceSection = () => {
       location: "Sofia, Bulgaria",
       period: "2026 — Present",
       description:
-        "Own the engineering strategy and org design for EDITED's Sofia office. Set technical direction across a multi-office engineering organization serving the world's top retailers.",
+        "I own engineering strategy and org design for EDITED's Sofia office, and set the technical direction for a multi-office organization serving the world's top retailers.",
       highlights: [
-        "Set the multi-year technical roadmap across 2 product teams",
-        "Grew the engineering org to 30+ people while maintaining delivery velocity",
+        "Set the multi-year technical roadmap across 4 product teams",
+        "Grew the engineering org to 30+ people without slowing delivery",
         "Unified engineering practices across Sofia, London, and New York",
-        "Championed platform consolidation that reduced operational complexity",
+        "Consolidated our platforms to cut operational overhead",
       ],
     },
     {
@@ -22,18 +22,18 @@ const ExperienceSection = () => {
       company: "EDITED",
       companyUrl: "https://www.edited.com/",
       location: "Sofia, Bulgaria",
-      period: "Earlier — 2026",
+      period: "Until 2026",
       description:
-        "Built the Sofia engineering office from its earliest hires into a key hub for the platform. Owned hiring, delivery, and day-to-day engineering operations.",
+        "Built the Sofia office from its earliest hires into a key hub for the platform — running hiring, delivery, and day-to-day operations along the way.",
       highlights: [
         "Shipped core platform features used by 100+ global retail brands",
-        "Established engineering culture, practices, and hiring bar",
+        "Set the engineering culture, practices, and hiring bar",
       ],
     },
   ];
 
   return (
-    <section id="experience" className="py-24 relative bg-neutral-subtle/20">
+    <section id="experience" className="py-16 md:py-24 scroll-mt-24 relative bg-neutral-subtle/20">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
@@ -45,8 +45,8 @@ const ExperienceSection = () => {
               Career <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
-              20+ years in software development, with a decade leading teams and building organizations.
-              From early coding days to senior leadership, I've navigated the full spectrum of the software industry, driving impact at every stage of my career.
+              20+ years in software, the last decade of them leading teams — from writing
+              code every day to running a multi-office engineering organization.
             </p>
           </div>
 
@@ -106,9 +106,9 @@ const ExperienceSection = () => {
                       {exp.highlights.map((highlight, hIndex) => (
                         <li
                           key={hIndex}
-                          className="flex items-center gap-2 text-sm text-content/80"
+                          className="flex items-start gap-2 text-sm text-content/80"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0 mt-1.5" />
                           {highlight}
                         </li>
                       ))}

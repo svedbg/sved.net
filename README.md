@@ -9,13 +9,16 @@ My personal website showcasing experience as a General Manager and Tech Lead. Bu
 ```bash
 npm install      # Install dependencies
 npm run dev      # Start dev server at localhost:5173
-npm run build    # Production build to /dist
+npm run build    # Production build to /dist (prerenders HTML for SEO)
 npm run preview  # Preview production build
 ```
 
 ## Architecture
 
-The site is a single-page application with smooth scrolling between sections:
+The site is a single-page application with smooth scrolling between sections.
+The production build prerenders the page to static HTML (`src/entry-server.tsx`
++ `scripts/prerender.mjs`), so crawlers get full content without executing
+JavaScript; React hydrates it in the browser.
 
 - **[src/components/](src/components/)** - UI components (Navigation, Hero, About, Experience, Skills, Contact, Footer)
 - **[src/pages/](src/pages/)** - Route pages (Index, 404)

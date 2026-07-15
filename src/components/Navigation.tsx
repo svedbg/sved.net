@@ -5,6 +5,7 @@ import { socialLinks, navLinks } from "../config/social";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,36 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.slice(1));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const intersecting = new Set<string>();
+
+    // Track which section crosses the middle band of the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersecting.add(entry.target.id);
+          } else {
+            intersecting.delete(entry.target.id);
+          }
+        });
+
+        const current =
+          [...sectionIds].reverse().find((id) => intersecting.has(id)) ?? "";
+        setActiveSection(current);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -34,7 +65,12 @@ const Navigation = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-content-muted hover:text-content transition-colors font-medium"
+                aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+                className={`transition-colors font-medium ${
+                  activeSection === link.href.slice(1)
+                    ? "text-brand"
+                    : "text-content-muted hover:text-content"
+                }`}
               >
                 {link.label}
               </a>
@@ -77,7 +113,12 @@ const Navigation = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-content-muted hover:text-content transition-colors font-medium"
+                  aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+                  className={`transition-colors font-medium ${
+                    activeSection === link.href.slice(1)
+                      ? "text-brand"
+                      : "text-content-muted hover:text-content"
+                  }`}
                 >
                   {link.label}
                 </a>

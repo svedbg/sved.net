@@ -22,9 +22,9 @@ export const socialLinks: SocialLink[] = [
   },
   {
     icon: Calendar,
-    label: "Book a Meeting",
+    label: "Book time with me",
     href: "https://calendly.com/svedbg/30min",
-    description: "Schedule 30 min",
+    description: "Find a time to talk",
   },
 ];
 

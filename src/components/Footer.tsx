@@ -9,7 +9,8 @@ const Footer = () => {
             {/* Logo and copyright */}
             <div className="text-center md:text-left">
               <span className="text-xl font-bold gradient-text">Svetoslav Rankov</span>
-              <p className="text-sm text-content-muted mt-1">
+              {/* suppressHydrationWarning: year is baked in at prerender time */}
+              <p className="text-sm text-content-muted mt-1" suppressHydrationWarning>
                 © {new Date().getFullYear()} All rights reserved.
               </p>
             </div>

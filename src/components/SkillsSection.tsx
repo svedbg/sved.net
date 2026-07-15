@@ -43,7 +43,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-16 md:py-24 scroll-mt-24 relative">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
@@ -52,7 +52,7 @@ const SkillsSection = () => {
               Skills
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Core <span className="gradient-text">Competencies</span>
+              What I'm <span className="gradient-text">Good At</span>
             </h2>
             <p className="text-content-muted text-lg max-w-2xl mx-auto">
               What I bring to the table — from technical architecture
@@ -75,7 +75,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill, sIndex) => (
                     <span
                       key={sIndex}
-                      className="px-3 py-1.5 rounded-lg bg-neutral-subtle text-sm text-content/80 hover:bg-brand/10 hover:text-brand transition-colors cursor-default"
+                      className="px-3 py-1.5 rounded-lg bg-neutral-subtle text-sm text-content/80"
                     >
                       {skill}
                     </span>
