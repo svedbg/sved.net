@@ -4,9 +4,11 @@ import "./index.css";
 
 const root = document.getElementById("root")!;
 
-// Production builds ship prerendered HTML (see scripts/prerender.mjs);
-// hydrate it instead of rendering from scratch. Dev serves an empty root.
-if (root.hasChildNodes()) {
+// Production builds ship HTML prerendered for "/" (see scripts/prerender.mjs).
+// Hydrate only when the current path matches that markup; on any other path
+// (e.g. SPA-fallback serving index.html for an unknown URL) or in dev, where
+// the root is empty, render from scratch instead.
+if (root.hasChildNodes() && window.location.pathname === "/") {
   hydrateRoot(root, <App />);
 } else {
   createRoot(root).render(<App />);
