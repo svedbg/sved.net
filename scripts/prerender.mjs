@@ -12,13 +12,13 @@ const html = render();
 
 const indexPath = resolve(root, "dist/index.html");
 const template = readFileSync(indexPath, "utf-8");
-const marker = '<div id="root"></div>';
+const markerRegex = /<div id="root"[^>]*>\s*<\/div>/;
 
-if (!template.includes(marker)) {
-  throw new Error(`Could not find ${marker} in dist/index.html`);
+if (!markerRegex.test(template)) {
+  throw new Error("Could not find <div id=\"root\"></div> in dist/index.html");
 }
 
-writeFileSync(indexPath, template.replace(marker, `<div id="root">${html}</div>`));
+writeFileSync(indexPath, template.replace(markerRegex, `<div id="root">${html}</div>`));
 rmSync(resolve(root, "dist-ssr"), { recursive: true, force: true });
 
 console.log("Prerendered dist/index.html");
